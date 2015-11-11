@@ -1,9 +1,4 @@
 # test
-FROM alpine
-MAINTAINER support@tutum.co
-RUN apk --update add nginx php-fpm
-RUN mkdir -p /tmp/nginx && echo "clear_env = no" >> /etc/php/php-fpm.conf
-ADD www /www
-ADD nginx.conf /etc/nginx/
-EXPOSE 80
-CMD php-fpm -d variables_order="EGPCS" && exec nginx -g "daemon off;"
+FROM ubuntu:14.04
+MAINTAINER Kate Smith <ksmith@example.com>
+RUN apt-get update && apt-get install -y ruby ruby-dev
